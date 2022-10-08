@@ -23,9 +23,6 @@
 #     if B == 0:
 #         break
 
-#     # if not A.isdigit():
-#     #     continue
-
 #     if B**2 == A:
 #         print("-> да")
 #     else:
@@ -86,6 +83,5 @@ temp = N * 10
 temp = temp - temp % 1
 temp = int(round( ((temp / 10) % 1) * 10, 0))
 
-print(f'\nПервая цифра дробной части -> {temp}\n')
-
+print(f'Первая цифра дробной части -> {temp}')
 
