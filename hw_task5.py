@@ -20,7 +20,7 @@ def CheckExit(sign):
 def GetInputNumber(*rang, txt='Введите число', departed=None):
     borders = '' if len(rang) == 0 else f' ({rang[0]} ... {rang[1]}).'
     txt_input = f'{txt}{borders}'
-    fr, to = (rang + (None, None))[:2]
+    frm, to = (rang + (None, None))[:2]
 
     while True:
         key_forCancel = (f'введите "{departed}" или ' if not (departed is None) else '') + '[Enter]'
@@ -34,7 +34,7 @@ def GetInputNumber(*rang, txt='Введите число', departed=None):
             txt_input = 'Повторите ввод.'
             continue
 
-        if not (fr is None) and numb < fr or not (to is None) and numb > to:
+        if not (frm is None) and numb < frm or not (to is None) and numb > to:
             print(f'Введенное число {numb} должно быть в диапазоне ({rang[0]} ... {rang[1]}) -> ', end='')
             txt_input = 'Повторите ввод.'
             continue
@@ -57,8 +57,7 @@ def Distance_TwoPoints(*points):
     sum_ofSquares = 0.00
     nD = int(len(points) / 2)
     for ind in range(0, nD):
-        delta_ind = points[ind + nD] - points[ind]
-        sum_ofSquares += delta_ind ** 2
+        sum_ofSquares += (points[ind + nD] - points[ind]) ** 2
     return round(sum_ofSquares ** (1 / 2), 3)
 
 
