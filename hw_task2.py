@@ -1,10 +1,11 @@
-'''
+"""
 Задача-2. апишите программу для. проверки истинности утверждения
 ¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z для всех значений предикат
-'''
+"""
+
 
 # Преобразование в двоичную систему счисления
-def Dec_toBinary(numb10, base=2):
+def CombiBoolean(numb10, base=2):
     tup_bin = tuple()
     while numb10:
         tup_bin += (numb10 % base,)
@@ -12,12 +13,13 @@ def Dec_toBinary(numb10, base=2):
     result = ((0, 0, 0) + tup_bin)[len(tup_bin):]
     return tuple([ind == 1 for ind in result])
 
+
 # Основное тело программы
 # =============================================================
 print('Проверяем истинность утверждения\n ¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z для всех значений предикат:')
 
 for i in range(0, 8):
-    pr = Dec_toBinary(i)
+    pr = CombiBoolean(i)
     l_side = not (pr[0] or pr[1] or pr[2])
     r_side = not pr[0] and not pr[1] and not pr[2]
 
